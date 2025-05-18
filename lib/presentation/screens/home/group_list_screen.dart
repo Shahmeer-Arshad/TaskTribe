@@ -12,7 +12,9 @@ class GroupListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => GroupBloc(groupRepository: GroupRepository())..add(LoadGroups()),
+      create:
+          (_) =>
+              GroupBloc(groupRepository: GroupRepository())..add(LoadGroups()),
       child: Scaffold(
         appBar: AppBar(title: const Text("Study Groups")),
         body: BlocBuilder<GroupBloc, GroupState>(
@@ -40,6 +42,15 @@ class GroupListScreen extends StatelessWidget {
             }
             return const SizedBox();
           },
+        ),
+
+        // ✅ Floating Action Button to create a group
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/create-group');
+          },
+          child: const Icon(Icons.add),
+          tooltip: 'Create Group',
         ),
       ),
     );

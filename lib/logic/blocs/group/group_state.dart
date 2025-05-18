@@ -12,6 +12,9 @@ class GroupLoaded extends GroupState {
   GroupLoaded(this.groups);
 }
 
+class GroupCreated
+    extends GroupState {} // ✅ Add this state for success after creation
+
 class GroupError extends GroupState {
   final String message;
 
